@@ -1,0 +1,75 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<script>
+    function OnLoading()
+    {
+        console.log("Dom has been loaded successfully ! ");
+        document.querySelector("#like").addEventListener("click",()=>{
+            console.log("you licked this post ! ")
+        })
+
+        //post share  validation 
+        document.querySelector("#new_post").addEventListener("input",()=>
+        {
+            let typed=document.querySelector("#new_post").value;
+            let letter = /[a-z]+/i;
+            var digit = /\d+/;
+            matched1=letter.test(typed);
+            matched2=digit.test(typed);
+    
+            if (matched1 || matched2)
+            {
+                document.querySelector(".post").disabled=false;
+            }
+            else{
+                document.querySelector(".post").disabled=true;
+            }
+          
+        })
+     
+    }
+    document.addEventListener("DOMContentLoaded",OnLoading);
+</script>
+
+
+ <div class='all_posts'>
+
+    {% if user.is_authenticated %}
+     <div class='new_post'>
+     <form action="{% url  'index' %}" method="post">
+     {% csrf_token %}
+         <br><br>
+         <textarea name="post_content" id="new_post" cols="65" rows="5" placeholder="what's on ur mind baby"></textarea>
+         <button class="post" type="submit">Post</button>
+     </form>
+     </div> 
+  
+   {% endif %}
+
+
+   <div class='current_posts'>
+        {% for post in posts  %}
+            <div class="each_post post_container"><hr>
+                <h5 >{{post.user}}</h5>
+                <textarea name="each_pst" id="" cols="65" rows="3" disabled>
+                    {{post.content}}
+                </textarea>
+                <p>{{post.time}}</p>
+                <p>{{post.likes}} likes</p>
+                <button id = 'like'>like</button>
+                
+            </div>
+        {% endfor %}   
+   </div>
+
+
+
+
+
+
+
+
+
+  </div>
+{% endblock %}
