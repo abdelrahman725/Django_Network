@@ -7,12 +7,19 @@ import selenium
 from selenium import webdriver
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse, resolve
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+chrome_options.add_argument('--headless')
+driver = webdriver.Chrome(options=chrome_options)
 # from selenium.webdriver.common.keys import Keys
 import time
 
 # Setup
 #driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
-driver = webdriver.Chrome("chromedriver.exe")
+path = "chrom"
+#driver = webdriver.Chrome("chromedriver.exe")
 
 #Functiona Testing with Selenium  
 
