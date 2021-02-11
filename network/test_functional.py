@@ -11,7 +11,8 @@ from django.urls import reverse, resolve
 import time
 
 # Setup
-driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
+#driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
+driver = webdriver.Chrome("D:\CS50 Web\project4\chromedriver.exe")
 
 #Functiona Testing with Selenium  
 
