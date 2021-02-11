@@ -8,7 +8,7 @@ def validate_post(post):
 
 
 class User(AbstractUser):
-    # creat a post for every user 
+    # creat a post for every user.
     pass
 
 
