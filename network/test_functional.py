@@ -2,7 +2,6 @@ import selenium
 import unittest
 import os
 import pathlib  
-
 import selenium
 from selenium import webdriver
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -18,8 +17,6 @@ import time
 
 # Setup
 #driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
-path = "chrom"
-#driver = webdriver.Chrome("chromedriver.exe")
 
 #Functiona Testing with Selenium  
 
